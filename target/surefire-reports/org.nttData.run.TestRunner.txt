@@ -1,10 +1,15 @@
 -------------------------------------------------------------------------------
 Test set: org.nttData.run.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.536 sec <<< FAILURE!
-Check login functionality(Feature to test functionality)  Time elapsed: 0.117 sec  <<< ERROR!
-java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "org.nttData.common.Common.driver" is null
-	at org.nttData.pages.LoginPage.userOnLoginPage(LoginPage.java:17)
-	at org.nttData.stepDefinition.Login.userIsOnLoginPage(Login.java:14)
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.655 sec <<< FAILURE!
+Check login functionality(Feature to test functionality)  Time elapsed: 0.155 sec  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.get(String)" because "org.nttData.pages.LoginPage.driver" is null
+	at org.nttData.pages.LoginPage.userOnLoginPage(LoginPage.java:12)
+	at org.nttData.stepDefinition.Login.userIsOnLoginPage(Login.java:26)
 	at ✽.User is on login page(file:///C:/Users/pantaleosa/Desktop/Revolution_Selenium/Revolution_project/src/test/features/login.feature:4)
+
+Check login functionality(Feature to test functionality)  Time elapsed: 0.155 sec  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.openqa.selenium.WebDriver.quit()" because the return value of "org.nttData.common.StartSession.getWebDriver()" is null
+	at org.nttData.listeners.Hook.closeBrowser(Hook.java:25)
+	at org.nttData.stepDefinition.Login.closeBrowser(Login.java:46)
 

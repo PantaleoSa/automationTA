@@ -4,17 +4,21 @@ import io.cucumber.java.Scenario;
 import org.nttData.common.StartSession;
 
 public class Hook {
-    //public static WebDriver browserDriver;
     private String browser;
     private String url = "https://assistenza.sky.it/";
 
     //Revolution project
     /*
-    Hook o not Hook?
+    1. listeners > Hook class for managing actions before and after every testcase
+    2. run > TestRunner as runner of referenced testcases (feature files and stepDefinition paths)
+    3. stepDefinition > Login as code of gherkin step into the feature file "login.feature"
+    4. features > login.feature as feature file with gherkin steps Cucumber based
+    5. pages > LoginPage as code of definition object and interactions of "Login" methods
+    6. common > StartBrowser as a WebDriver manager
      */
+
     public static void startBrowser(){
         //this.browser = System.getProperty("browser");
-        //this.browser = "chrome";
         StartSession.initDriver("chrome","https://assistenza.sky.it/");
     }
 

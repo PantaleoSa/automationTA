@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="org.nttData.run.TestRunner" time="0.117" errors="1" skipped="0">
+<testsuite tests="2" failures="0" name="org.nttData.run.TestRunner" time="0.31" errors="2" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="18.0.2.1+1-1"/>
     <property name="sun.boot.library.path" value="C:\Users\pantaleosa\openjdk\jdk-18.0.2.1\bin"/>
-    <property name="browser" value="chrome"/>
+    <property name="browser" value="firefox"/>
     <property name="user.country.format" value="IT"/>
     <property name="maven.multiModuleProjectDirectory" value="C:\Users\pantaleosa\Desktop\Revolution_Selenium\Revolution_project"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
@@ -45,7 +45,7 @@
     <property name="java.class.path" value="C:\Users\pantaleosa\maven\apache-maven-3.8.7\boot\plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="18"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean test -Dbrowser=chrome"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean test -Dbrowser=firefox"/>
     <property name="java.home" value="C:\Users\pantaleosa\openjdk\jdk-18.0.2.1"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
@@ -64,11 +64,19 @@
     <property name="sun.stdout.encoding" value="cp437"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Feature to test functionality" name="Check login functionality" time="0.117">
-    <error message="Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;org.nttData.common.Common.driver&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;org.nttData.common.Common.driver&quot; is null
-	at org.nttData.pages.LoginPage.userOnLoginPage(LoginPage.java:17)
-	at org.nttData.stepDefinition.Login.userIsOnLoginPage(Login.java:14)
+  <testcase classname="Feature to test functionality" name="Check login functionality" time="0.155">
+    <error message="Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;org.nttData.pages.LoginPage.driver&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebDriver.get(String)&quot; because &quot;org.nttData.pages.LoginPage.driver&quot; is null
+	at org.nttData.pages.LoginPage.userOnLoginPage(LoginPage.java:12)
+	at org.nttData.stepDefinition.Login.userIsOnLoginPage(Login.java:26)
 	at ✽.User is on login page(file:///C:/Users/pantaleosa/Desktop/Revolution_Selenium/Revolution_project/src/test/features/login.feature:4)
+</error>
+    <system-out>Check login functionality
+</system-out>
+  </testcase>
+  <testcase classname="Feature to test functionality" name="Check login functionality" time="0.155">
+    <error message="Cannot invoke &quot;org.openqa.selenium.WebDriver.quit()&quot; because the return value of &quot;org.nttData.common.StartSession.getWebDriver()&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.WebDriver.quit()&quot; because the return value of &quot;org.nttData.common.StartSession.getWebDriver()&quot; is null
+	at org.nttData.listeners.Hook.closeBrowser(Hook.java:25)
+	at org.nttData.stepDefinition.Login.closeBrowser(Login.java:46)
 </error>
   </testcase>
 </testsuite>
