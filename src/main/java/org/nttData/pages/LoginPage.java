@@ -8,19 +8,20 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends StartSession {
     public static String loginUrl;
-    public static String homepageUrl;
-
+    public static String homepageUrl = "https://assistenza.sky.it/";
+    public static String currentUrl;
     public static void userOnLoginPage(){
        loginUrl = "https://assistenza.sky.it/login";
        driver.get(loginUrl);
-       WebElement cookies = driver.findElement(By.xpath("//*[@id='sp_message_iframe_639456']"));
-        if (cookies.isDisplayed()){
-            //StartSession.getWebDriverWait(400).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(cookies));
-            driver.switchTo().frame(cookies);
+       WebElement cookiesModal = driver.findElement(By.xpath("//*[@id='sp_message_iframe_639456']"));
+        StartSession.getWebDriverWait(400).until(ExpectedConditions.visibilityOf(cookiesModal));
+        if (cookiesModal.isDisplayed()){
+            driver.switchTo().frame(cookiesModal);
             System.out.println("Cookies Modal displayed");
-            WebElement acceptCookiesBtn = driver.findElement(By.cssSelector("div.message-component.message-row.mobile-reverse > div:nth-child(2) > button"));
+            WebElement acceptCookiesBtn = driver.findElement(By.cssSelector("button.message-component.sp_choice_type_11"));
             acceptCookiesBtn.click();
             System.out.println("cookies accepted");
+            driver.switchTo().defaultContent();
        }
     }
     public static void credentialsEnter(){
@@ -35,14 +36,14 @@ public class LoginPage extends StartSession {
 
     public static void loginClick() {
         WebElement loginButton = driver.findElement(By.className("sky-login-submit"));
-        StartSession.getWebDriverWait(5);
         loginButton.click();
         System.out.println("Signed in with Click");
+        StartSession.getWebDriverWait(5).until(ExpectedConditions.urlToBe(homepageUrl));
     }
 
     public static void userLanded(){
-        homepageUrl = driver.getCurrentUrl();
-        Assert.assertEquals(loginUrl, homepageUrl);
+        currentUrl = driver.getCurrentUrl();
+        Assert.assertEquals(currentUrl, homepageUrl);
         System.out.println("the user is landed on the homepage");
     }
 }
